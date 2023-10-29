@@ -38,9 +38,9 @@ Color::Color(){
 }
 
 Color::Color(int redVal, int greenVal, int blueVal){
-    checkRange(redVal);
-    checkRange(greenVal);
-    checkRange(blueVal);
+    red = checkRange(redVal);
+    green = checkRange(greenVal);
+    blue = checkRange(blueVal);
     //i'm not sure if this needs anything else
 }
 
