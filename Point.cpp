@@ -51,6 +51,17 @@ void Point::read(istream& ins) {
     setX(xVal);
     setY(yVal);
 }
+/*
+    void Point::read(istream& ins) {
+    // TODO: Implement
+    char trash;
+    ins >> trash >> x >> trash >> y >> trash;
+    x = checkRange(x);
+    y = checkRange(y);
+    return;
+} 
+//This is what I have from lab, and as far as I know, this is right. I dont know if that answers your question.
+*/
 
 void Point::write(ostream& outs) {
     outs << '(' << x << ',' << y << ')';
