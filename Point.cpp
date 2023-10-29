@@ -16,20 +16,18 @@
 // for the declaration of DIMENSION
 #include "utility.h"
 
-// TODO: implement two constructors, setX, getX, setY, getY, read, write, checkRange.
-
 Point::Point() {
     x = 0;
     y = 0;
 }
 
 Point::Point(int xVal, int yVal) {
-    x = xVal;
-    y = yVal;
+    x = checkRange(xVal);
+    y = checkRange(yVal);
 }
 
 void Point::setX(int xVal) {
-    x = xVal;
+    x = checkRange(xVal);
 }
 
 int Point::getX() {
@@ -37,26 +35,35 @@ int Point::getX() {
 }
 
 void Point::setY(int yVal) {
-    y = yVal;
+    y = checkRange(yVal);
 }
 
 int Point::getY() {
     return y;
 }
 
-void read(istream& ins) {
-    // to do - implement
+void Point::read(istream& ins) {
+    char junk;
+    int xVal;
+    int yVal;
+    //!IMPORTANT Q: do i need to use setX/setY for x and y?
+    ins >> junk >> xVal >> junk >> yVal >> junk;
+    setX(xVal);
+    setY(yVal);
 }
 
-void write(ostream& outs) {
-    // to do - implement
+void Point::write(ostream& outs) {
+    outs << '(' << x << ',' << y << ')';
 }
 
 int Point::checkRange(int val) {
-    // to do - implement
-
-    // to do - replace with correct return statement
-    return val;
+    if (val >= 0 || val < DIMENSION) {
+        return val;
+    }
+    else if (val < 0) {
+        return 0;
+    }
+    return DIMENSION - 1;
 }
 
 

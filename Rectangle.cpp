@@ -23,7 +23,104 @@ using namespace std;
 //       getColorTopRight, setColorBottomRight, getColorBottomRight,
 //       setColorBottomLeft, getColorBottomLeft, read, write.
 
+Rectangle::Rectangle() {
+    //! Since it doesn't modify anything, no data members?
+}
 
+Rectangle::Rectangle(Point pt1, Point pt2, Color color) {
+    setStart(pt1);
+    setEnd(pt2);
+    setColor(color);
+}
+
+Rectangle::Rectangle(Point pt1, Point pt2, Color cTopLeft, Color cTopRight,
+              Color cBottomRight, Color cBottomLeft) {
+    setStart(pt1);
+    setEnd(pt2);
+    setColorTopLeft(cTopLeft);
+    setColorTopRight(cTopRight);
+    setColorBottomLeft(cBottomLeft);
+    setColorBottomRight(cBottomRight);
+}
+
+void Rectangle::setStart(Point pt) {
+    start = pt;
+}
+
+Point Rectangle::getStart() {
+    return start;
+}
+
+void Rectangle::setEnd(Point pt) {
+    end = pt;
+}
+
+Point Rectangle::getEnd() {
+    return end;
+}
+
+void Rectangle::setColor(Color color) {
+    colorTopLeft = color;
+    colorTopRight = color;
+    colorBottomRight = color;
+    colorBottomLeft = color;
+}
+
+void Rectangle::setColorTopLeft(Color color) {
+    colorTopLeft = color;
+}
+
+Color Rectangle::getColorTopLeft() {
+    return colorTopLeft;
+}
+
+void Rectangle::setColorTopRight(Color color) {
+    colorTopRight = color;
+}
+
+Color Rectangle::getColorTopRight() {
+    return colorTopRight;
+}
+
+void Rectangle::setColorBottomRight(Color color) {
+    colorBottomRight = color;
+}
+
+Color Rectangle::getColorBottomRight() {
+    return colorBottomRight;
+}
+
+void Rectangle::setColorBottomLeft(Color c) {
+    colorBottomLeft = c;
+}
+
+Color Rectangle::getColorBottomLeft() {
+    return colorBottomLeft;
+}
+
+void Rectangle::read(istream& ins) {
+    Point myStart;
+    Point myEnd;
+    Color myColorTopLeft;
+    Color myColorTopRight;
+    Color myColorBottomRight;
+    Color myColorBottomLeft;
+
+    ins >> myStart >> myEnd >> myColorTopLeft >> myColorTopRight 
+        >> myColorBottomRight >> myColorBottomLeft;
+
+    // call setStart, setEnd, setColortopleft... 
+}
+
+void Rectangle::write(ostream& outs) {
+    // outs << "R " << "  " << end << "  " << colorTopLeft;
+
+    // //! check if color is the same
+    // if (!colorTopLeft == colorTopRight) {
+    //     outs << "   " << colorTopRight << "     " << colorBottomRight
+    //          << "   " << colorBottomLeft;
+    // }
+}
 
 // Your code goes above this line.
 // Don't change the implementations below!

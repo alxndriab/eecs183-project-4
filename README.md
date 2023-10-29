@@ -1,12 +1,12 @@
 # PROJECT 4
 1. Write function stubs
-- [ ] Point
-- [ ] Line
+- [x] Point
+- [x] Line
 - [ ] Triangle
 - [ ] Circle
 - [ ] Rectangle
-- [ ] color
-- [ ] graphics
+- [x] Color
+- [x] graphics
 
 2. Finish Color class
 - [ ] description

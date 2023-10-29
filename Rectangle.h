@@ -25,7 +25,7 @@ public:
     /**
      * Requires: Nothing.
      * Modifies: Nothing.
-     * Effects:  Default contructor.
+     * Effects:  Default constructor.
      */
     Rectangle();
 
@@ -33,7 +33,7 @@ public:
      * Requires: Nothing.
      * Modifies: start, end, colorTopLeft, colorTopRight, colorBottomRight,
      *           colorBottomLeft.
-     * Effects:  Overloaded contructor. Sets start, end and single color.
+     * Effects:  Overloaded constructor. Sets start, end and single color.
      */
     Rectangle(Point pt1, Point pt2, Color color);
 
@@ -41,7 +41,7 @@ public:
      * Requires: Nothing.
      * Modifies: start, end, colorTopLeft, colorTopRight, colorBottomRight,
      *           colorBottomLeft.
-     * Effects:  Overloaded contructor. Sets start, end and four colors.
+     * Effects:  Overloaded constructor. Sets start, end and four colors.
      */
     Rectangle(Point pt1, Point pt2, Color cTopLeft, Color cTopRight,
               Color cBottomRight, Color cBottomLeft);
