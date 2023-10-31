@@ -63,7 +63,15 @@ void Line::read(istream& ins) {
 }
 
 void Line::write(ostream& outs) {
-
+    Point pt1;
+    Point pt2;
+    Color color;
+    
+    outs << pt1 << " " << pt2 << " " << color;
+    
+    setStart(pt1);
+    setEnd(pt2);
+    setColor(color);
 }
 
 // Your code goes above this line.
