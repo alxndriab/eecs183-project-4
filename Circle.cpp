@@ -58,11 +58,27 @@ Color Circle::getColor(){
 
 //I'm not sure how to do the read and write ones
 void Circle::read(istream& ins){
+    Color color;
+    Point pt;
     
+    ins >> pt >> radius >> color;
+    
+    setCenter(pt);
+    setRadius(radius);
+    setColor(color);
 }
+//C (50,50)  25   235 230 0
+//C center radius  r   g  b
 
 void Circle::write(ostream& outs){
+    Color color;
+    Point pt;
     
+    outs << pt << " " << radius << " " << color;
+    
+    setCenter(pt);
+    setRadius(radius);
+    setColor(color);
 }
 
 // Your code goes above this line.
