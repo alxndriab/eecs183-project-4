@@ -52,7 +52,14 @@ Color Line::getColor() {
 }
 
 void Line::read(istream& ins) {
-
+    Point pt1;
+    Point pt2;
+    Color color;
+    
+    ins >> pt1 >> pt2 >> color;
+    setStart(pt1);
+    setEnd(pt2);
+    setColor(color);
 }
 
 void Line::write(ostream& outs) {
