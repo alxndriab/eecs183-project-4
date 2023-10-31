@@ -21,7 +21,49 @@ using namespace std;
 // TODO: implement two constructors, setCenter, getCenter, setColor, getColor,
 //       setRadius, getRadius, read, write.
 
+//I'm confused about this constructor
+Circle::Circle(){
+    
+}
 
+Circle::Circle(Point pt, int r, Color c){
+    center = pt;
+    radius = checkRadius(r);
+    color = c;
+}
+
+void Circle::setCenter(Point pt){
+    center = pt;
+}
+
+Point Circle::getCenter(){
+    return center;
+}
+
+void Circle::setRadius(int r){
+    radius = checkRadius(r);
+}
+
+int Circle::getRadius(){
+    return radius;
+}
+
+void Circle::setColor(Color c){
+    color = c;
+}
+
+Color Circle::getColor(){
+    return color;
+}
+
+//I'm not sure how to do the read and write ones
+void Circle::read(istream& ins){
+    
+}
+
+void Circle::write(ostream& outs){
+    
+}
 
 // Your code goes above this line.
 // Don't change the implementations below!
