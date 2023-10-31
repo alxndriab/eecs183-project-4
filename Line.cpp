@@ -59,10 +59,6 @@ void Line::write(ostream& outs) {
 
 }
 
-void Line::draw(Graphics& drawer) {
-
-}
-
 // Your code goes above this line.
 // Don't change the implementations below!
 
