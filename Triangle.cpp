@@ -131,7 +131,9 @@ void Triangle::read(istream &ins){
 }
 
 void Triangle::write(ostream &outs){
-    
+    outs << "T " << vertexOne << " " << vertexOneColor << " " << vertexTwo 
+         << " " << vertexTwoColor << " " << vertexThree << " " 
+         << vertexThreeColor << endl;
 }
 
 // Your code goes above this line.

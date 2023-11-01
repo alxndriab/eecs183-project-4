@@ -19,7 +19,6 @@
 using namespace std;
 
 Rectangle::Rectangle() {
-    //! Since it doesn't modify anything, no data members?
 }
 
 Rectangle::Rectangle(Point pt1, Point pt2, Color color) {
@@ -97,36 +96,28 @@ void Rectangle::read(istream& ins) {
     Point myStart;
     Point myEnd;
     Color myColorTopLeft;
-    Color colors[3];
-    Color tempColor;
-    int counter = 0;
+    Color myColorTopRight;
+    Color myColorBottomRight;
+    Color myColorBottomLeft;
 
     ins >> myStart >> myEnd >> myColorTopLeft;
-    setStart(myStart);
-    setEnd(myEnd);
-    setColor(myColorTopLeft);
-    
-    while (ins >> tempColor) {
-        colors[counter] = tempColor;
 
-        if (counter == 0) {
-            setColorTopRight(colors[counter]);
-        }
-        else if (counter == 1) {
-            setColorBottomRight(colors[counter]);
-        }
-        else if (counter == 2 ) {
-            setColorBottomLeft(colors[counter]);
-        }
-
-        counter++;
+    if (ins.fail()) {
+        ins.clear();
+        ins >> myStart >> myEnd >> myColorTopLeft >> myColorTopRight 
+            >> myColorBottomRight >> myColorBottomLeft;
+    }
+    else {
+        setStart(myStart);
+        setEnd(myEnd);
+        setColor(myColorTopLeft);
     }
 }
 
 void Rectangle::write(ostream& outs) {
     outs << "R " << start << " " << end << "  " << colorTopLeft << "  "
          << colorTopRight << "  " << colorBottomRight << "  " 
-         << colorBottomLeft;
+         << colorBottomLeft << endl;
 }
 
 // Your code goes above this line.
