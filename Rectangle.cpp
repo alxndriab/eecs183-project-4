@@ -18,11 +18,6 @@
 #include <algorithm>
 using namespace std;
 
-// TODO: implement three constructors, setStart, getStart, setEnd, getEnd,
-//       setColor, setColorTopLeft, getColorTopLeft, setColorTopRight,
-//       getColorTopRight, setColorBottomRight, getColorBottomRight,
-//       setColorBottomLeft, getColorBottomLeft, read, write.
-
 Rectangle::Rectangle() {
     //! Since it doesn't modify anything, no data members?
 }
@@ -102,24 +97,36 @@ void Rectangle::read(istream& ins) {
     Point myStart;
     Point myEnd;
     Color myColorTopLeft;
-    Color myColorTopRight;
-    Color myColorBottomRight;
-    Color myColorBottomLeft;
+    Color colors[3];
+    Color tempColor;
+    int counter = 0;
 
-    ins >> myStart >> myEnd >> myColorTopLeft >> myColorTopRight 
-        >> myColorBottomRight >> myColorBottomLeft;
+    ins >> myStart >> myEnd >> myColorTopLeft;
+    setStart(myStart);
+    setEnd(myEnd);
+    setColor(myColorTopLeft);
+    
+    while (ins >> tempColor) {
+        colors[counter] = tempColor;
 
-    // call setStart, setEnd, setColortopleft... 
+        if (counter == 0) {
+            setColorTopRight(colors[counter]);
+        }
+        else if (counter == 1) {
+            setColorBottomRight(colors[counter]);
+        }
+        else if (counter == 2 ) {
+            setColorBottomLeft(colors[counter]);
+        }
+
+        counter++;
+    }
 }
 
 void Rectangle::write(ostream& outs) {
-    // outs << "R " << "  " << end << "  " << colorTopLeft;
-
-    // //! check if color is the same
-    // if (!colorTopLeft == colorTopRight) {
-    //     outs << "   " << colorTopRight << "     " << colorBottomRight
-    //          << "   " << colorBottomLeft;
-    // }
+    outs << "R " << start << " " << end << "  " << colorTopLeft << "  "
+         << colorTopRight << "  " << colorBottomRight << "  " 
+         << colorBottomLeft;
 }
 
 // Your code goes above this line.

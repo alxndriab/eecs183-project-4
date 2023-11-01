@@ -22,7 +22,6 @@
 
 using namespace std;
 
-// TODO: implement constructor, clear, setPixel, initArray.
 Graphics::Graphics() {
     initArray();
 }
@@ -31,12 +30,11 @@ void Graphics::clear() {
     initArray();
 }
 
-void setPixel(int x, int y, Color color) {
-    // todo implementation
+void Graphics::setPixel(int x, int y, Color color) {
+    pixelData[x][y] = color;
 }
 
 void Graphics::initArray() {
-    // TODO create black color
     Color color;
     for (int i = 0; i < DIMENSION; i++) {
         for (int j = 0; j < DIMENSION; j++) {

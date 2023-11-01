@@ -100,7 +100,34 @@ Color Triangle::getVertexThreeColor(){
 }
 
 void Triangle::read(istream &ins){
-    
+    Point myV1;
+    Point myV2;
+    Point myV3;
+    Color myV1Color;
+    Color myV2Color;
+    Color myV3Color;
+
+    ins >> myV1 >> myV2 >> myV3 >> myV1Color;
+        
+	if (ins.fail()) {
+        ins.clear();
+        ins >> myV1 >> myV1Color >> myV2 >> myV2Color >> myV3 
+            >> myV3Color;
+        
+        setVertexOne(myV1);
+        setVertexOneColor(myV1Color);
+        setVertexTwo(myV2);
+        setVertexTwoColor(myV2Color);
+        setVertexThree(myV3);
+        setVertexThreeColor(myV3Color);
+    }
+    else {
+        setVertexOne(myV1);
+        setVertexTwo(myV2);
+        setVertexThree(myV3);
+        setColor(myV1Color);
+    }
+
 }
 
 void Triangle::write(ostream &outs){

@@ -112,7 +112,7 @@ public:
     /**
      * Requires: Nothing.
      * Modifies: colorBottomRight.
-     * Effects:  Sets bottom rihgt color of rectangle.
+     * Effects:  Sets bottom right color of rectangle.
      */
     void setColorBottomRight(Color color);
 

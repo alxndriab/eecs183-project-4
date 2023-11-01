@@ -46,7 +46,7 @@ void Point::read(istream& ins) {
     char junk;
     int xVal;
     int yVal;
-    //!IMPORTANT Q: do i need to use setX/setY for x and y?
+    
     ins >> junk >> xVal >> junk >> yVal >> junk;
     setX(xVal);
     setY(yVal);
@@ -64,11 +64,15 @@ void Point::read(istream& ins) {
 */
 
 void Point::write(ostream& outs) {
-    outs << '(' << x << ',' << y << ')';
+    int myX;
+    int myY;
+    outs << '(' << myX << ',' << myY << ')';
+    setX(myX);
+    setY(myY);
 }
 
 int Point::checkRange(int val) {
-    if (val >= 0 || val < DIMENSION) {
+    if (val >= 0 && val < DIMENSION) {
         return val;
     }
     else if (val < 0) {

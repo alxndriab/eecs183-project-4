@@ -69,19 +69,20 @@ int Color::getBlue(){
 }
 
 void Color::read(istream& ins){
-    ins >>  red >> green >> blue;
-    red = checkRange(red);
-    green = checkRange(green);
-    blue = checkRange(blue);
+    int myRed;
+    int myGreen;
+    int myBlue;
+    ins >>  myRed >> myGreen >> myBlue;
+    
+    setRed(myRed);
+    setGreen(myGreen);
+    setBlue(myBlue);
+
     return;
 }
 
 void Color::write(ostream& outs){
-    outs << red << " " << green << " " << blue;
-    red = checkRange(red);
-    green = checkRange(green);
-    blue = checkRange(blue);
-    outs << endl;
+    outs << red << "  " << green << "  " << blue;
     return;
 }
 

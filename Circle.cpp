@@ -18,12 +18,7 @@
 #include <algorithm>
 using namespace std;
 
-// TODO: implement two constructors, setCenter, getCenter, setColor, getColor,
-//       setRadius, getRadius, read, write.
-
-//I'm confused about this constructor
 Circle::Circle(){
-    
 }
 
 Circle::Circle(Point pt, int r, Color c){
@@ -56,29 +51,21 @@ Color Circle::getColor(){
     return color;
 }
 
-//I'm not sure how to do the read and write ones
 void Circle::read(istream& ins){
-    Color color;
-    Point pt;
+    Color myColor;
+    Point myPt;
+    int myRadius;
     
-    ins >> pt >> radius >> color;
+    ins >> myPt >> myRadius >> myColor;
     
-    setCenter(pt);
+    setCenter(myPt);
     setRadius(radius);
-    setColor(color);
+    setColor(myColor);
 }
-//C (50,50)  25   235 230 0
-//C center radius  r   g  b
 
 void Circle::write(ostream& outs){
-    Color color;
-    Point pt;
-    
-    outs << pt << " " << radius << " " << color;
-    
-    setCenter(pt);
-    setRadius(radius);
-    setColor(color);
+    outs << "C " << center << "  " << radius << "   " << color;
+    return;
 }
 
 // Your code goes above this line.
