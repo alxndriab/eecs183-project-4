@@ -35,7 +35,8 @@ void test_Triangle();
 
 void startTests() {
     test_Point();
-    
+    test_Color();
+    test_Line();
     // call other test functions here
     
     return;
@@ -64,5 +65,45 @@ void test_Point() {
     return;
 }
 
+void test_Color(){
+    cout << "Now testing Color" << endl;
+    Color color;
+    cout << "Expected: 000 000 000, Actual: " << color << endl;
+    
+    Color color2(255, 150, 000);
+    cout << "Expected: 255 150 000, Actual: " << color2 << endl;
 
+    Color color3;
+    color3.setRed(100);
+    color3.setGreen(000);
+    color3.setBlue(200);
+    
+    cout << "Expected: (100 000 200), Actual: " << color3.getRed() << " " << color3.getGreen() << " " << color3.getBlue() << endl;
+}
+
+void test_Line(){
+    cout << "Now testing Line" << endl;
+    Line pt1;
+    Line pt2;
+    Color color1;
+    cout << "Expected (0,0) (0,0) 0 0 0, Actual: " << pt1 << " " << pt2 << " " << color1 << endl;
+    
+    Point pt3(13, 56);
+    Point pt4(93, 37);
+    Color color2(155, 150, 100);
+    cout << "Expected (13, 56) (93, 37) 155 150 100, Actual: " << pt3 << " " << pt4 << " " << color2 << endl;
+    
+    Line line;
+    Point pt5;
+    line.setStart(pt5);
+    pt5.setX(45);
+    pt5.setY(56);
+    Point pt6;
+    line.setEnd(pt6);
+    pt6.setX(23);
+    pt6.setY(87);
+    Color color3 (255, 150, 000);
+    line.setColor(color3);
+    cout << "Expected (45, 56) (23, 87) 255 150 100, Actual: " << pt5 << " " << pt6 << " " << color3 << endl;
+}
 
