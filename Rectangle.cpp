@@ -93,7 +93,7 @@ Color Rectangle::getColorBottomLeft() {
 }
 
 void Rectangle::read(istream& ins) {
-    Point myStart;
+/*    Point myStart;
     Point myEnd;
     Color myColorTopLeft;
     Color myColorTopRight;
@@ -111,11 +111,24 @@ void Rectangle::read(istream& ins) {
         setStart(myStart);
         setEnd(myEnd);
         setColor(myColorTopLeft);
+    }*/
+
+        ins >> start >> end >> colorTopLeft >> colorTopRight;
+    if (ins.fail()) {
+        ins.clear();
+        colorTopRight = colorTopLeft;
+        colorBottomLeft = colorTopLeft;
+        colorBottomRight = colorTopLeft;
+    }
+    else{
+        ins >> colorBottomLeft;
+        ins >> colorBottomRight;
     }
 }
 
 void Rectangle::write(ostream& outs) {
-    outs << "R " << start << " " << end << "  " << colorTopLeft << "  "
+    //maybe we need two different possibilities like we have for read?
+    outs << start << " " << end << "  " << colorTopLeft << "  "
          << colorTopRight << "  " << colorBottomRight << "  " 
          << colorBottomLeft << endl;
 }
