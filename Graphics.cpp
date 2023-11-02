@@ -31,7 +31,11 @@ void Graphics::clear() {
 }
 
 void Graphics::setPixel(int x, int y, Color color) {
-    pixelData[x][y] = color;
+    if (x >= 0 && x < DIMENSION) {
+        if (y >= 0 && y < DIMENSION) {
+            pixelData[x][y] = color;
+        }
+    }
 }
 
 void Graphics::initArray() {
