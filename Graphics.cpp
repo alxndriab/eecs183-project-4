@@ -31,11 +31,14 @@ void Graphics::clear() {
 }
 
 void Graphics::setPixel(int x, int y, Color color) {
-    if (x >= 0 && x < DIMENSION) {
+ /*   if (x >= 0 && x < DIMENSION) {
         if (y >= 0 && y < DIMENSION) {
             pixelData[x][y] = color;
         }
     }
+*/
+    //I was talking to Emma and she said all we had to do was switch the x and the y coordinate
+    pixelData[y][x] = color;
 }
 
 void Graphics::initArray() {
