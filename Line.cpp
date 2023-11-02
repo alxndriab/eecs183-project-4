@@ -14,8 +14,6 @@
 #include "Line.h"
 #include "Graphics.h"
 
-// TODO: implement two Line constructors, setStart, getStart, setEnd,
-//       getEnd, setColor, getColor, read, write.
 
 Line::Line() {
 
@@ -63,7 +61,7 @@ void Line::read(istream& ins) {
 }
 
 void Line::write(ostream& outs) {
-    outs << start << " " << end << " " << lineColor;
+    outs << start << " " << end << "  " << lineColor;
 }
 
 // Your code goes above this line.

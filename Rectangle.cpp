@@ -5,8 +5,8 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Alexandria Balde and Teresa Billecke
+ * abalde and tbilleck
  *
  * <#Description#>
  */
@@ -93,27 +93,8 @@ Color Rectangle::getColorBottomLeft() {
 }
 
 void Rectangle::read(istream& ins) {
-/*    Point myStart;
-    Point myEnd;
-    Color myColorTopLeft;
-    Color myColorTopRight;
-    Color myColorBottomRight;
-    Color myColorBottomLeft;
+    ins >> start >> end >> colorTopLeft >> colorTopRight;
 
-    ins >> myStart >> myEnd >> myColorTopLeft;
-
-    if (ins.fail()) {
-        ins.clear();
-        ins >> myStart >> myEnd >> myColorTopLeft >> myColorTopRight 
-            >> myColorBottomRight >> myColorBottomLeft;
-    }
-    else {
-        setStart(myStart);
-        setEnd(myEnd);
-        setColor(myColorTopLeft);
-    }*/
-
-        ins >> start >> end >> colorTopLeft >> colorTopRight;
     if (ins.fail()) {
         ins.clear();
         colorTopRight = colorTopLeft;
@@ -127,9 +108,8 @@ void Rectangle::read(istream& ins) {
 }
 
 void Rectangle::write(ostream& outs) {
-    //maybe we need two different possibilities like we have for read?
-    outs << start << " " << end << "  " << colorTopLeft << "  "
-         << colorTopRight << "  " << colorBottomRight << "  " 
+    outs << start << " " << end << "  " << colorTopLeft << "   "
+         << colorTopRight << "   " << colorBottomRight << "   " 
          << colorBottomLeft << endl;
 }
 

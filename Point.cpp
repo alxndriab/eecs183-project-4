@@ -13,6 +13,13 @@
 
 #include "Point.h"
 
+
+//! DWD 
+#include <string>
+#include <iostream>
+
+
+
 // for the declaration of DIMENSION
 #include "utility.h"
 
@@ -47,10 +54,16 @@ void Point::read(istream& ins) {
     int xVal;
     int yVal;
     
-    ins >> junk >> xVal >> junk >> yVal >> junk;
+    ins >> junk;
 
-    setX(xVal);
-    setY(yVal);
+    if (junk == '(') {
+        ins >> xVal >> junk >> yVal >> junk;
+        setX(xVal);
+        setY(yVal);
+    }
+    else {
+        ins.clear();
+    }
 }
 
 void Point::write(ostream& outs) {
@@ -58,7 +71,7 @@ void Point::write(ostream& outs) {
 }
 
 int Point::checkRange(int val) {
-    if (val >= 0 && val < DIMENSION) {
+    if (val >= 0 && val <= DIMENSION) {
         return val;
     }
     else if (val < 0) {

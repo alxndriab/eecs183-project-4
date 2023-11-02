@@ -64,7 +64,7 @@ void Circle::read(istream& ins){
 }
 
 void Circle::write(ostream& outs){
-    outs << "C " << center << "  " << radius << "   " << color;
+    outs << center << "  " << radius << "   " << color;
     return;
 }
 

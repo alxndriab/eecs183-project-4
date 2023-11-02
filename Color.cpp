@@ -16,7 +16,7 @@ const int COLOR_MAX = 255;
 
 
 int Color::checkRange(int val){
-    if ((val >= 0) && (val < COLOR_MAX)){
+    if ((val >= 0) && (val <= COLOR_MAX)){
         return val;
     }
     else{

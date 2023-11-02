@@ -17,12 +17,6 @@
 #include <cmath>
 using namespace std;
 
-// TODO: implement three constructors, setColor, setVertexOne, getVertexOne,
-//       setVertexTwo, getVertexTwo, setVertexThree, getVertexThree,
-//       setVertexOneColor, getVertexOneColor, setVertexTwoColor,
-//       getVertexTwoColor, setVertexThreeColor, getVertexThreeColor,
-//       read, write.
-
 Triangle::Triangle(){
     
 }
@@ -100,39 +94,9 @@ Color Triangle::getVertexThreeColor(){
 }
 
 void Triangle::read(istream &ins){
-/*    Point myV1;
-    Point myV2;
-    Point myV3;
-    Color myV1Color;
-    Color myV2Color;
-    Color myV3Color;
-
-    ins >> myV1 >> myV2 >> myV3 >> myV1Color;
-        
-	if (ins.fail()) {
-        ins.clear();
-        ins >> myV2;
-        ins >> myV2Color;
-        ins >> myV3;
-        ins >> myV3Color;
-        
-        setVertexOne(myV1);
-        setVertexOneColor(myV1Color);
-        setVertexTwo(myV2);
-        setVertexTwoColor(myV2Color);
-        setVertexThree(myV3);
-        setVertexThreeColor(myV3Color);
-    }
-    else {
-        setVertexOne(myV1);
-        setVertexTwo(myV2);
-        setVertexThree(myV3);
-        setColor(myV1Color);
-    }
-*/
-//Emma also helped me with this one, and I think we should do the same thing for rectangle
-	 ins >> vertexOne;
+    ins >> vertexOne;
     ins >> vertexOneColor;
+
     if (ins.fail()) {
         ins.clear();
         ins >> vertexTwo;
@@ -140,9 +104,7 @@ void Triangle::read(istream &ins){
         ins >> vertexOneColor;
         vertexTwoColor = vertexOneColor;
         vertexThreeColor = vertexOneColor;
-    }
-    else{
-        
+    } else {
         ins >> vertexTwo;
         ins >> vertexTwoColor;
         ins >> vertexThree;
@@ -152,7 +114,7 @@ void Triangle::read(istream &ins){
 }
 
 void Triangle::write(ostream &outs){
-    outs << "T " << vertexOne << " " << vertexOneColor << " " << vertexTwo 
+    outs << vertexOne << " " << vertexOneColor << " " << vertexTwo 
          << " " << vertexTwoColor << " " << vertexThree << " " 
          << vertexThreeColor << endl;
 }
