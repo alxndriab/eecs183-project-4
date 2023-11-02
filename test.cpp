@@ -69,6 +69,52 @@ void test_Point() {
          << "," << p1.getY()
          << ")" << endl;
     
+Point pt1;
+    pt1.setX(15);
+    cout << "Expected: (15,0), actual : (" << pt1.getX() << "," << pt1.getY() << ")" << endl;
+    
+    Point pt2;
+    pt2.setY(87);
+    cout << "Expected: (0,87), actual : (" << pt2.getX() << "," << pt2.getY() << ")" << endl;
+    
+    Point pt5;
+    pt5.setX(-20);
+    pt5.setY(187);
+    cout << "Expected: (0,99), actual : (" << pt5.getX() << "," << pt5.getY() << ")" << endl;
+    
+    Point pt6;
+    pt6.setX(20);
+    pt6.setY(18);
+    cout << "Expected: (20,18), actual : (" << pt6.getX() << "," << pt6.getY() << ")" << endl;
+    
+    Point pt7;
+    cout << "Expected: (0,0), actual : (" << pt7.getX() << "," << pt7.getY() << ")" << endl;
+        
+    ifstream input_file;
+    input_file.open("data1.txt");
+    Point pt3;
+    Point pt4;
+    Point pt8;
+    pt3.read(input_file);
+    cout << "Expected: (42,7), actual : " << pt3;
+    pt4.read(input_file);
+    cout << "Expected: (50,0), actual : " << pt4;
+    pt8.read(input_file);
+    cout << "Expected: (99,0), actual : " << pt8;
+    
+    ofstream output_file;
+    output_file.open("data2.txt");
+    Point pt9;
+    pt9.setX(23);
+    pt9.setY(74);
+    pt9.write(output_file);
+    cout << "Expected: (23,74), actual : " << pt9;
+    Point pt10;
+    pt10.setX(-23);
+    pt10.setY(734);
+    pt10.write(output_file);
+    cout << "Expected: (0,99), actual : " << pt10;
+    
     return;
 }
 
