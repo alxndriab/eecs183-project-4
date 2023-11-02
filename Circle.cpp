@@ -59,7 +59,7 @@ void Circle::read(istream& ins){
     ins >> myPt >> myRadius >> myColor;
     
     setCenter(myPt);
-    setRadius(radius);
+    setRadius(myRadius);
     setColor(myColor);
 }
 
