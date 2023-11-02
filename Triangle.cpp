@@ -100,7 +100,7 @@ Color Triangle::getVertexThreeColor(){
 }
 
 void Triangle::read(istream &ins){
-    Point myV1;
+/*    Point myV1;
     Point myV2;
     Point myV3;
     Color myV1Color;
@@ -128,6 +128,25 @@ void Triangle::read(istream &ins){
         setVertexTwo(myV2);
         setVertexThree(myV3);
         setColor(myV1Color);
+    }
+*/
+//Emma also helped me with this one, and I think we should do the same thing for rectangle
+	 ins >> vertexOne;
+    ins >> vertexOneColor;
+    if (ins.fail()) {
+        ins.clear();
+        ins >> vertexTwo;
+        ins >> vertexThree;
+        ins >> vertexOneColor;
+        vertexTwoColor = vertexOneColor;
+        vertexThreeColor = vertexOneColor;
+    }
+    else{
+        
+        ins >> vertexTwo;
+        ins >> vertexTwoColor;
+        ins >> vertexThree;
+        ins >> vertexThreeColor;
     }
 
 }
