@@ -32,12 +32,16 @@ void test_Line();
 void test_Point();
 void test_Rectangle();
 void test_Triangle();
+void file_check();
+
 
 void startTests() {
     test_Point();
     test_Color();
     test_Line();
+    
     // call other test functions here
+    file_check();
     
     return;
 }
@@ -107,3 +111,20 @@ void test_Line(){
     cout << "Expected (45, 56) (23, 87) 255 150 100, Actual: " << pt5 << " " << pt6 << " " << color3 << endl;
 }
 
+void file_check() {
+
+    // open one of the text files that are part of the starter code
+    ifstream ins;
+    ins.open("data1.txt");
+
+    // if the file was not in the correct directory, the stream state is fail
+    if (ins.fail()) {
+        cout << "Could not open data1.txt" << endl;
+    }
+    else {
+        cout << "Success! Text files are in the right directory." << endl;
+    }
+    ins.close();
+    
+    return;
+}

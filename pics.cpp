@@ -14,6 +14,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cctype>
 using namespace std;
 
 #include "Line.h"
@@ -77,7 +78,36 @@ string tolower(string str);
  *     Print "[Loaded <filename>]", where <filename> is replaced with 
  *                                  the name of the file.
  */
-void loadFile(Graphics& drawer);
+void loadFile(Graphics& drawer) {
+    //! move down to definition
+    ifstream ins;
+    string fileName = openFile(ins);
+    char shape;
+    
+    while (ins >> shape) {
+        if (shape == 'L') {
+
+        }
+        else if (shape == 'C') {
+
+        }
+        else if (shape == 'T') {
+
+        }
+        else if (shape == 'R') {
+
+        }
+        else {
+            drawer.clear();
+            string lineString;
+            getline(ins, lineString);
+            cout << "Error in input file: " << shape << lineString << endl;
+        }
+    }
+
+    ins.close();
+    cout << "[Loaded " << fileName << "]";
+};
 
 /**
  * Requires: Nothing.
@@ -142,11 +172,18 @@ void loadFile(Graphics& drawer)
     // TODO: implement
 }
 
-string tolower(string str)
-{
-    // TODO: implement
+string tolower(string str) {
+    string newStr = "";
+    for (int i = 0; i < str.length(); i++) {
+        if (isalpha(str.at(i))) {
+            newStr += tolower(str.at(i));
+        }
+        else {
+            newStr += str.at(i);
+        }
+    }
 
-    return str;
+    return newStr;
 }
 
 
