@@ -177,7 +177,7 @@ void test_Rectangle(){
 }
 
 void test_Triangle(){
-    cout << "Now testing Triangle";
+    cout << "Now testing Triangle" << endl;
     Point pt1;
     Point pt2;
     Point pt3;
@@ -189,6 +189,17 @@ void test_Triangle(){
     Point pt6(-12, 799);
     Color color2(125, 0, 125);
     cout << "Expected (12,43) (9,32) (0,99)  125 0 125, Actual: " << pt4 << "  " << pt5 << "  " << pt6 << "  " << color2 << endl;
+
+        ifstream ins;
+    ins.open("sample.txt");
+    Line junkLine;
+    Triangle t1;
+    Triangle t2;
+    junkLine.read(ins);
+    t1.read(ins);
+    t2.read(ins);
+    cout << t1 << endl << t2 << endl;
+    ins.close();
     
     Point pt7;
     Point pt8;
@@ -205,7 +216,7 @@ void test_Triangle(){
     t.setVertexTwo(pt8);
     t.setVertexThree(pt9);
     t.setColor(color3);
-    cout << "Expected (12,43) (9,32) (0,99)  125 0 125, Actual: " << pt4 << "  " << pt5 << "  " << pt6 << "  " << color2 << endl;
+    cout << "Expected (12,43) (9,32) (0,99)  125 0 125, Actual: " << pt4 << "  " << pt5 << "  " << pt6 << "  " << color2 << endl << endl;
 }
 void file_check() {
 
