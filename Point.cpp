@@ -1,12 +1,12 @@
 /**
  * Point.cpp
- * Project UID 2e6ea4e086ea6a06753e819c30923369
  *
  * EECS 183
- * Project 4: CoolPics
+ * Lab 7
+ * Taken from Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Teresa Billecke
+ * tbilleck
  *
  * <#Description#>
  */
@@ -16,74 +16,82 @@
 // for the declaration of DIMENSION
 #include "utility.h"
 
+// TODO: implement two constructors, setX, getX, setY, getY, read, write, checkRange.
 Point::Point() {
+    // TODO: Implement
     x = 0;
     y = 0;
 }
-
+    
 Point::Point(int xVal, int yVal) {
+    // TODO: Implement
     x = checkRange(xVal);
     y = checkRange(yVal);
 }
 
 void Point::setX(int xVal) {
-    x = checkRange(xVal);
+    // TODO: Implement
+    x = xVal;
+    x = checkRange(x);
+    return;
 }
 
 int Point::getX() {
+    // TODO: Implement
+    // FIXME: returning arbitrary value of 0 to avoid compile error
     return x;
 }
 
 void Point::setY(int yVal) {
-    y = checkRange(yVal);
+    // TODO: Implement
+    y = yVal;
+    y = checkRange(y);
+    return;
 }
-
+    
 int Point::getY() {
+    // TODO: Implement
+    // FIXME: returning arbitrary value of 0 to avoid compile error
     return y;
 }
 
 void Point::read(istream& ins) {
-    char junk;
-    int xVal;
-    int yVal;
-    
-    ins >> junk >> xVal >> junk >> yVal >> junk;
-    setX(xVal);
-    setY(yVal);
-}
-/*
-    void Point::read(istream& ins) {
     // TODO: Implement
     char trash;
     ins >> trash >> x >> trash >> y >> trash;
     x = checkRange(x);
     y = checkRange(y);
     return;
-} 
-//This is what I have from lab, and as far as I know, this is right. I dont know if that answers your question.
-*/
+}
 
 void Point::write(ostream& outs) {
-    int myX;
-    int myY;
-    outs << '(' << myX << ',' << myY << ')';
-    setX(myX);
-    setY(myY);
+    // TODO: Implement
+    outs << '(' << x << ','<< y << ')';
+    x = checkRange(x);
+    y = checkRange(y);
+    outs << endl;
+    return;
 }
 
 int Point::checkRange(int val) {
-    if (val >= 0 && val < DIMENSION) {
+    // TODO: Implement
+    if ((val >= 0) && (val < DIMENSION)){
         return val;
     }
-    else if (val < 0) {
-        return 0;
+    else{
+        if(val < 0){
+            return 0;
+        }
+        else{
+            return (DIMENSION-1);
+        }
     }
-    return DIMENSION - 1;
+    // FIXME: returning arbitrary value of 0 to avoid compile error
 }
 
 
-// Your code goes above this line.
-// Don't change the implementations below!
+// Your code goes above this line!!!
+// Don't change the implementations below!!!
 
 istream& operator >> (istream& ins,  Point& pt)
 {
