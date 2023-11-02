@@ -78,36 +78,7 @@ string tolower(string str);
  *     Print "[Loaded <filename>]", where <filename> is replaced with 
  *                                  the name of the file.
  */
-void loadFile(Graphics& drawer) {
-    //! move down to definition
-    ifstream ins;
-    string fileName = openFile(ins);
-    char shape;
-    
-    while (ins >> shape) {
-        if (shape == 'L') {
-
-        }
-        else if (shape == 'C') {
-
-        }
-        else if (shape == 'T') {
-
-        }
-        else if (shape == 'R') {
-
-        }
-        else {
-            drawer.clear();
-            string lineString;
-            getline(ins, lineString);
-            cout << "Error in input file: " << shape << lineString << endl;
-        }
-    }
-
-    ins.close();
-    cout << "[Loaded " << fileName << "]";
-};
+void loadFile(Graphics& drawer);
 
 /**
  * Requires: Nothing.
@@ -161,15 +132,50 @@ void coolPics()
     return;
 }
 
-void writeFile(const Graphics& drawer)
-{
-    // TODO: implement
-    // This will make use of Graphics::writeFile()
+void writeFile(const Graphics& drawer) {
+    string fileName;
+    cin >> fileName;
+    fileName = fileName + ".bmp";
+    drawer.writeFile(fileName);
+    cout << "[Wrote " << fileName << "]" << endl;
 }
 
-void loadFile(Graphics& drawer)
-{
-    // TODO: implement
+void loadFile(Graphics& drawer) {
+    ifstream ins;
+    string fileName = openFile(ins);
+    char shape;
+    
+    while (ins >> shape || !ins.eof()) {
+        if (shape == 'L') {
+            Line newLine;
+            newLine.read(ins);
+            newLine.draw(drawer);
+        }
+        else if (shape == 'C') {
+            Circle newCircle;
+            newCircle.read(ins);
+            newCircle.draw(drawer);
+        }
+        else if (shape == 'T') {
+            Triangle newTriangle;
+            newTriangle.read(ins);
+            newTriangle.draw(drawer);
+        }
+        else if (shape == 'R') {
+            Rectangle newRectangle;
+            newRectangle.read(ins);
+            newRectangle.draw(drawer);
+        }
+        else {
+            string lineString;
+            getline(ins, lineString);
+            cout << "Error in input file: " << shape << lineString << endl;
+            drawer.clear();
+        }
+    }
+
+    ins.close();
+    cout << "[Loaded " << fileName << "]" << endl;
 }
 
 string tolower(string str) {
