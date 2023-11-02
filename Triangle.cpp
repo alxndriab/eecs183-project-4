@@ -111,8 +111,10 @@ void Triangle::read(istream &ins){
         
 	if (ins.fail()) {
         ins.clear();
-        ins >> myV1 >> myV1Color >> myV2 >> myV2Color >> myV3 
-            >> myV3Color;
+        ins >> myV2;
+        ins >> myV2Color;
+        ins >> myV3;
+        ins >> myV3Color;
         
         setVertexOne(myV1);
         setVertexOneColor(myV1Color);

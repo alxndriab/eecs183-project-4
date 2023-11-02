@@ -41,13 +41,14 @@ void Point::setY(int yVal) {
 int Point::getY() {
     return y;
 }
-
+        
 void Point::read(istream& ins) {
     char junk;
     int xVal;
     int yVal;
     
     ins >> junk >> xVal >> junk >> yVal >> junk;
+
     setX(xVal);
     setY(yVal);
 }

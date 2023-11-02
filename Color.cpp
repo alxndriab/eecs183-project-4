@@ -14,8 +14,6 @@
 #include "Color.h"
 const int COLOR_MAX = 255;
 
-// TODO: implement first checkRange, then two constructors, setRed, getRed,
-//       setGreen, getGreen, setBlue, getBlue, read, write.
 
 int Color::checkRange(int val){
     if ((val >= 0) && (val < COLOR_MAX)){
@@ -25,8 +23,8 @@ int Color::checkRange(int val){
         if(val < 0){
             return 0;
         }
-        else{
-            return (COLOR_MAX);
+        else {
+            return COLOR_MAX - 1;
         }
     }
 }
@@ -41,7 +39,6 @@ Color::Color(int redVal, int greenVal, int blueVal){
     red = checkRange(redVal);
     green = checkRange(greenVal);
     blue = checkRange(blueVal);
-    //i'm not sure if this needs anything else
 }
 
 void Color::setRed(int redVal){
@@ -77,8 +74,6 @@ void Color::read(istream& ins){
     setRed(myRed);
     setGreen(myGreen);
     setBlue(myBlue);
-
-    return;
 }
 
 void Color::write(ostream& outs){
