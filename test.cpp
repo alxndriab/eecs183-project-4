@@ -359,6 +359,27 @@ void test_Triangle(){
     t.setColor(color3);
     cout << "Expected (12,43) (9,32) (0,99)  125 0 125, Actual: " << pt4 
          << "  " << pt5 << "  " << pt6 << "  " << color2 << endl << endl;
+
+     Point pt7;
+    Point pt8;
+    Point pt9;
+    Color color3(120, 50, 255);
+    Color color9(120, 50, 255);
+    Color color8(120, 50, 255);
+    Triangle t;
+    pt7.setX(3);
+    pt7.setY(4);
+    pt8.setX(23);
+    pt8.setY(45);
+    pt9.setX(44);
+    pt9.setY(67);
+    t.setVertexOne(pt7);
+    t.setVertexTwo(pt8);
+    t.setVertexThree(pt9);
+    t.setVertexOneColor(color3);
+    t.setVertexTwoColor(color9);
+    t.setVertexThreeColor(color8);
+    cout << "Expected (3,4)   120 50 255  (23,45)   120 50 255  (44,67)   120 50 255, Actual: " << t.getVertexOne() << "   " <<  t.getVertexOneColor() << "  " << t.getVertexTwo() << "   " << t.getVertexTwoColor() << "  " << t.getVertexThree() << endl << endl;
 }
 void file_check() {
 
