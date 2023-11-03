@@ -5,8 +5,8 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Alexandria Balde and Teresa Billecke
+ * abalde and tbilleck
  *
  * Contains functions for testing classes in the project. 
  */
@@ -69,52 +69,6 @@ void test_Point() {
          << "," << p1.getY()
          << ")" << endl;
     
-     Point pt1;
-    pt1.setX(15);
-    cout << "Expected: (15,0), actual : (" << pt1.getX() << "," << pt1.getY() << ")" << endl;
-    
-    Point pt2;
-    pt2.setY(87);
-    cout << "Expected: (0,87), actual : (" << pt2.getX() << "," << pt2.getY() << ")" << endl;
-    
-    Point pt5;
-    pt5.setX(-20);
-    pt5.setY(187);
-    cout << "Expected: (0,99), actual : (" << pt5.getX() << "," << pt5.getY() << ")" << endl;
-    
-    Point pt6;
-    pt6.setX(20);
-    pt6.setY(18);
-    cout << "Expected: (20,18), actual : (" << pt6.getX() << "," << pt6.getY() << ")" << endl;
-    
-    Point pt7;
-    cout << "Expected: (0,0), actual : (" << pt7.getX() << "," << pt7.getY() << ")" << endl;
-        
-    ifstream input_file;
-    input_file.open("data1.txt");
-    Point pt3;
-    Point pt4;
-    Point pt8;
-    pt3.read(input_file);
-    cout << "Expected: (42,7), actual : " << pt3;
-    pt4.read(input_file);
-    cout << "Expected: (50,0), actual : " << pt4;
-    pt8.read(input_file);
-    cout << "Expected: (99,0), actual : " << pt8;
-    
-    ofstream output_file;
-    output_file.open("data2.txt");
-    Point pt9;
-    pt9.setX(23);
-    pt9.setY(74);
-    pt9.write(output_file);
-    cout << "Expected: (23,74), actual : " << pt9;
-    Point pt10;
-    pt10.setX(-23);
-    pt10.setY(734);
-    pt10.write(output_file);
-    cout << "Expected: (0,99), actual : " << pt10;
-    
     return;
 }
 
@@ -131,17 +85,11 @@ void test_Color(){
     color3.setGreen(0);
     color3.setBlue(200);
     
-    cout << "Expected: (100 000 200), Actual: " << color3.getRed() << " " 
+    cout << "Expected: (100 0 200), Actual: " << color3.getRed() << " " 
          << color3.getGreen() << " " << color3.getBlue() << endl;
 
-    Color color4(254, 1, 000);
-    cout << "Expected: 254 1 0, Actual: " << color4 << endl;
-
-    Color color5(10000, -1243, 254);
-    cout << "Expected: 255 0 254, Actual: " << color5 << endl;
-
-    Color color6(50000, -100, 0);
-    cout << "Expected: 255 150 000, Actual: " << color6 << endl;
+    Color color4(50000, -100, 0);
+    cout << "Expected: 255 150 0, Actual: " << color4 << endl;
 
 }
 
@@ -150,50 +98,51 @@ void test_Line(){
     Point pt1;
     Point pt2;
     Color color1;
-    Line newLine;(pt1, pt2, color1);
-    cout << "Expected (0,0) (0,0) 0 0 0, Actual: " << newLine << endl;
+    Line line1(pt1, pt2, color1);
+    cout << "Expected (0,0) (0,0) 0 0 0, Actual: " << line1 << endl;
     
     Point pt3(999, 56);
     Point pt4(93, -37);
     Color color2(155, 150, 100);
-    Line newLine2(pt3, pt4, color2);
-    cout << "Expected (99, 56) (93, 0) 155 150 100, Actual: " << newLine2 << endl;
+    Line line2(pt3, pt4, color2);
+    cout << "Expected (99,56) (93,0) 155 150 100, Actual: " << line2 << endl;
 
     Point pt7(130, -56);
     Point pt8(93, 37);
     Color color5(-23, 150, 1000);
-    Line line2(pt7, pt8, color5);
-    cout << "Expected (99,0) (93,37) 0 150 255, Actual: " << line2 << endl;
+    Line newLine2(pt7, pt8, color5);
+    cout << "Expected (99,0) (93,37) 0 150 255, Actual: " << newLine2 << endl;
     
+    Line line3;
+    Point pt5(45, 56);
+    line3.setStart(pt5);
+    Point pt6(23, 87);
+    line3.setEnd(pt6);
+    Color color3 (255, 150, 0);
+    line3.setColor(color3);
+    cout << "Expected (45, 56) (23, 87) 255 150 100, Actual: " << line3 << endl;
+
+    Line line4;
+    Point pt12(45, 56);
+    line4.setStart(pt12);
+    Point pt13(23, 87);
+    line4.setEnd(pt13);
+    Color color6 (255, 150, 100);
+    line4.setColor(color6);
+    cout << "Expected (45,56) (23,87) 255 150 100, Actual: " << line4.getStart() <<
+    " " << line4.getEnd() << " " << line4.getColor() << endl;
+
+    // writing a line to a file
+    ofstream output_file;
+    output_file.open("data2.txt");
     Point pt10(83, 14);
     Point pt11(90, 67);
     Color color4(0, 150, 255);
-    Line line1(pt10, pt11, color4);
-    cout << "Expected L (83,14) (90,67) 0 150 255, Actual: " << line1 << endl;
-    
-    Line line;
-    Point pt5;
-    pt5.setX(45);
-    pt5.setY(56);
-    line.setStart(pt5);
-    Point pt6;
-    pt6.setX(23);
-    pt6.setY(87);
-    line.setEnd(pt6);
-    Color color3 (255, 150, 0);
-    line.setColor(color3);
-    cout << "Expected (45, 56) (23, 87) 255 150 100, Actual: " << pt5 << " " 
-         << pt6 << " " << color3 << endl;
-
-    Line line3;
-    Point pt12(45, 56);
-    line.setStart(pt12);
-    Point pt13(23, 87);
-    line.setEnd(pt13);
-    Color color6 (255, 150, 100);
-    line.setColor(color6);
-    cout << "Expected (45,56) (23,87) 255 150 100, Actual: " << line3.getStart() <<
-    " " << line3.getEnd() << " " << line3.getColor() << endl << endl;
+    Line line5(pt10, pt11, color4);
+    pt10.write(output_file);
+    cout << "Expected L (83,14) (90,67) 0 150 255, Actual: " << line5.getStart() <<
+    " " << line5.getEnd() << " " << line5.getColor() << endl;
+    output_file.close();
 }
 
 void test_Circle(){
@@ -202,41 +151,40 @@ void test_Circle(){
     Point pt;
     int r;
     Color c;
-    cout << "Expected (0,0)  0   0 0 0, Actual: " << pt << "  " << r << "  " 
-         << c << endl;
+    Circle circle1(pt, r, c);
+    cout << "Expected (0,0)  0   0 0 0, Actual: " << circle1 << endl;
     
     Point pt1(24, 87);
     int r1 = 12;
     Color c1(125, 400, 150);
-    cout << "Expected (24,87)  12   125 255 150, Actual: " << pt1 << "  " 
-         << r1 << "  " << c1 << endl;
+    Circle circle2(pt1, r1, c1);
+    cout << "Expected (24,87)  12   125 255 150, Actual: " << circle2 << endl;
 
     Point pt3(-123, 874);
     int r3 = -15;
     Color c4(125, 400, 150);
-    Circle circle1(pt3, r3, c4);
-    cout << "Expected (0,99)  15   125 255 150, Actual: " << circle1 << endl;
+    Circle circle3(pt3, r3, c4);
+    cout << "Expected (0,99)  15   125 255 150, Actual: " << circle3.getCenter() 
+         << " " << circle3.getRadius() << " " << circle3.getColor() << endl;
     
-    Point pt2;
-    Circle circle;
-    circle.setCenter(pt2);
-    pt2.setX(45);
-    pt2.setY(32);
-    int r2 = 17;
-    circle.setRadius(r2);
-    Color c3(0, 125, 444);
-    circle.setColor(c3);
-    cout << "Expected (45,32)  17   0 125 255, Actual: " << pt2 << "  " 
-         << r2 << "  " << c3 << endl << endl;
+    Point pt4(45, 32);
+    Circle circle4;
+    circle4.setCenter(pt4);
+    int r4 = 17;
+    circle4.setRadius(r4);
+    Color c5(0, 125, 444);
+    circle4.setColor(c5);
+    cout << "Expected (45,32)  17   0 125 255, Actual: " << circle4.getCenter() 
+         << " " << circle4.getRadius() << " " << circle4.getColor() << endl;
 
-     Point pt4(1000, -5);
-    int r4 = -23;
-    Color c5(125, 400, -150);
-    circle.setCenter(pt4);
-    circle.setRadius(r4);
-    circle.setColor(c5);
-    cout << "Expected (99,0)  23   125 255 0, Actual: " << pt4
-    << "  " << r4 << "  " << c5 << endl << endl;
+    Point pt6(1000, -5);
+    int r6 = -23;
+    Color c6(125, 400, -150);
+    circle4.setCenter(pt6);
+    circle4.setRadius(r6);
+    circle4.setColor(c6);
+    cout << "Expected (99,0)  23   125 255 0, Actual: " << circle4.getCenter() 
+         << " " << circle4.getRadius() << " " << circle4.getColor() << endl;
 }
 
 void test_Rectangle(){
@@ -245,20 +193,23 @@ void test_Rectangle(){
     Point pt1;
     Point pt2;
     Color color;
-    cout << "Expected (0,0) (0,0)  0 0 0, Actual: " << pt1 << "  " << pt2 
-         << "  " << color << endl;
+    Rectangle rect1(pt1, pt2, color);
+    cout << "Expected (0,0) (0,0)  0 0 0, Actual: " << rect1 << endl;
     
     Point pt3(12, 3);
-    Point pt4(45, 67);
+    Point pt4(-45, 1000);
     Color color1(125, 0, 255);
-    cout << "Expected (12,3) (45,67)  125 0 255, Actual: " << pt3 << "  " 
-         << pt4 << "  " << color1 << endl;
+    rect1.setStart(pt3);
+    rect1.setEnd(pt3);
+    rect1.setColor(color1);
+    cout << "Expected (12,3) (0,99)  125 0 255, Actual: " << rect1.getStart() 
+         << " " << rect1.getEnd() << " " << rect1.getColorTopLeft() << endl;
 
     Point pt9(12, 3);
     Point pt10(45, 67);
     Color color7(125, 0, 255);
-    Rectangle rectangle1(pt9, pt10, color7);
-    cout << "Expected (12,3) (45,67)  125 0 255, Actual: " << rectangle1 << endl;
+    Rectangle rect2(pt9, pt10, color7);
+    cout << "Expected (12,3) (45,67)  125 0 255, Actual: " << rect2 << endl;
     
     Point pt11(12, 3);
     Point pt12(45, 67);
@@ -266,22 +217,20 @@ void test_Rectangle(){
     Color colorTR(234, 999, -123);
     Color colorBL(204, -78, 102);
     Color colorBR(266, 90, 35);
-    Rectangle rectangle2(pt11, pt12, colorTL, colorTR, colorBL, colorBR);
-    cout << "Expected (12,3) (45,67)  125 0 255  234 255 0   204 0 102   255 90 35, Actual: " << rectangle2 << endl;
+    Rectangle rect3(pt11, pt12, colorTL, colorTR, colorBL, colorBR);
+    cout << "Expected (12,3) (45,67)  125 0 255  234 255 0   204 0 102   "
+         << "255 90 35, Actual: " << rect3.getStart() << " " << rect3.getEnd() 
+         << " " << rect3.getColorTopLeft() << "  " << rect3.getColorTopRight() 
+         << "  " << rect3.getColorBottomLeft() << "  " << rect3.getColorBottomRight();
     
-    Point pt5;
-    Point pt6;
-    Rectangle rectangle;
+    Point pt5(54, 13);
+    Point pt6(56, 34);
+    Rectangle rect4;
     Color color2(234, 999, -123);
-    pt5.setX(54);
-    pt5.setY(13);
-    rectangle.setStart(pt5);
-    pt6.setX(56);
-    pt6.setY(34);
-    rectangle.setEnd(pt6);
-    rectangle.setColor(color2);
-    cout << "Expected (54,13) (56,34)  234 255 0, Actual: " << pt5 << "  " 
-         << pt6 << "  " << color2 << endl;
+    rect4.setStart(pt5);
+    rect4.setEnd(pt6);
+    rect4.setColor(color2);
+    cout << "Expected (54,13) (56,34)  234 255 0, Actual: " << rect4 << endl;
     
     Point pt7(1, 3);
     Point pt8(45, 17);
@@ -289,9 +238,17 @@ void test_Rectangle(){
     Color color4(0, 123, 25);
     Color color5(105, 10, 235);
     Color color6(266, 90, 35);
-    cout << "Expected (1,3) (45,17)  204 0 102  0 123 25  105 10 235  "
-         << "255 90 35, Actual: " << pt7 << "  " << pt8 << "  " << color3 
-         << "  " << color4 << "  " << color5 << "  " << color6 << endl;
+    Rectangle rect5;
+    rect5.setStart(pt7);
+    rect5.setEnd(pt8);
+    rect5.setColorTopLeft(color3);
+    rect5.setColorTopRight(color4);
+    rect5.setColorBottomRight(color5);
+    rect5.setColorBottomLeft(color6);
+    cout << "Expected (1,3) (45,17)  204 0 102  105 10 235  0 123 25"
+         << "255 90 35, Actual: " << rect5.getStart() << " " << rect5.getEnd() << "  " 
+         << rect5.getColorTopLeft() << "   " << rect5.getColorTopRight() << "   " 
+         << rect5.getColorBottomRight() << "   " << rect5.getColorTopRight() << endl;
         
     Point pt14(1, 3);
     Point pt15(45, 17);
@@ -299,16 +256,17 @@ void test_Rectangle(){
     Color color8(0, 123, 25);
     Color color9(105, 10, 235);
     Color color10(266, 90, 35);
-    Rectangle r2(pt14, pt15, color11, color8, color9, color10);
-    r2.setStart(pt14);
-    r2.setEnd(pt15);
-    r2.setColorTopLeft(color11);
-    r2.setColorTopRight(color8);
-    r2.setColorBottomRight(color9);
-    r2.setColorBottomLeft(color10);
-    cout << "Expected (1,3) (45,17)  204 0 102  0 123 25  105 10 235  255"
-    "90 35, Actual: " << r2.getStart() << " " << r2.getEnd() << "  " << r2.getColorTopLeft() << "   " <<
-    r2.getColorTopRight() << "   " << r2.getColorBottomRight() << "   " << r2.getColorTopRight() << endl;
+    Rectangle rect6(pt14, pt15, color11, color8, color9, color10);
+    rect6.setStart(pt14);
+    rect6.setEnd(pt15);
+    rect6.setColorTopLeft(color11);
+    rect6.setColorTopRight(color8);
+    rect6.setColorBottomRight(color9);
+    rect6.setColorBottomLeft(color10);
+    cout << "Expected (1,3) (45,17)  204 0 102  0 123 25  105 10 235  255 90 35"
+         << "90 35, Actual: " << rect6.getStart() << " " << rect6.getEnd() << "  " 
+         << rect6.getColorTopLeft() << "   " << rect6.getColorTopRight() << "   " 
+         << rect6.getColorBottomRight() << "   " << rect6.getColorTopRight() << endl;
     
     cout << endl;
 }
@@ -319,29 +277,23 @@ void test_Triangle(){
     Point pt2;
     Point pt3;
     Color color1;
-    cout << "Expected (0,0) (0,0) (0,0)  0 0 0, Actual: " << pt1 << "  " 
-         << pt2 << "  " << pt3 << "  " << color1 << endl;
+    Triangle tri1(pt1, pt2, pt3, color1);
+    cout << "Expected (0,0) (0,0) (0,0)  0 0 0, Actual: " << tri1 << endl;
     
     Point pt4(12, 43);
     Point pt5(9, 32);
     Point pt6(-12, 799);
     Color color2(125, 0, 125);
-    cout << "Expected (12,43) (9,32) (0,99)  125 0 125, Actual: " << pt4 
-         << "  " << pt5 << "  " << pt6 << "  " << color2 << endl;
+    Triangle tri2(pt4, pt5, pt6, color2);
+    cout << "Expected (12,43) (9,32) (0,99)  125 0 125, Actual: " 
+         << tri2.getVertexOne() << " " << tri2.getVertexTwo() 
+         << " " << tri2.getVertexThree() << " " << tri2.getVertexOneColor() 
+         << " " << tri2.getVertexTwoColor() << " " << tri2.getVertexThree();
 
     
-    // reading triangles from file
-    ifstream ins;
-    ins.open("sample.txt");
-    Line junkLine;
-    Triangle t1;
-    Triangle t2;
-    junkLine.read(ins);
-    t1.read(ins);
-    t2.read(ins);
-    cout << t1 << endl << t2 << endl;
-    ins.close();
-    
+    // writing a triangle to a file
+    ofstream output_file;
+    output_file.open("data3.txt");
     Point pt7;
     Point pt8;
     Point pt9;
@@ -357,29 +309,10 @@ void test_Triangle(){
     t.setVertexTwo(pt8);
     t.setVertexThree(pt9);
     t.setColor(color3);
-    cout << "Expected (12,43) (9,32) (0,99)  125 0 125, Actual: " << pt4 
-         << "  " << pt5 << "  " << pt6 << "  " << color2 << endl << endl;
-
-     Point pt7;
-    Point pt8;
-    Point pt9;
-    Color color3(120, 50, 255);
-    Color color9(120, 50, 255);
-    Color color8(120, 50, 255);
-    Triangle t;
-    pt7.setX(3);
-    pt7.setY(4);
-    pt8.setX(23);
-    pt8.setY(45);
-    pt9.setX(44);
-    pt9.setY(67);
-    t.setVertexOne(pt7);
-    t.setVertexTwo(pt8);
-    t.setVertexThree(pt9);
-    t.setVertexOneColor(color3);
-    t.setVertexTwoColor(color9);
-    t.setVertexThreeColor(color8);
-    cout << "Expected (3,4)   120 50 255  (23,45)   120 50 255  (44,67)   120 50 255, Actual: " << t.getVertexOne() << "   " <<  t.getVertexOneColor() << "  " << t.getVertexTwo() << "   " << t.getVertexTwoColor() << "  " << t.getVertexThree() << endl << endl;
+    cout << "Expected (12,43) (9,32) (0,99)  125 0 125, Actual: " << t << endl;
+    t.write(output_file);
+    output_file.close();
+     
 }
 void file_check() {
 

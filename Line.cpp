@@ -16,7 +16,6 @@
 
 
 Line::Line() {
-
 }
 
 Line::Line(Point pt1, Point pt2, Color color) {

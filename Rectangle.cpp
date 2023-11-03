@@ -111,8 +111,8 @@ void Rectangle::read(istream& ins) {
 }
 
 void Rectangle::write(ostream& outs) {
-    outs << start << " " << end << "  " << colorTopLeft << "   "
-         << colorTopRight << "   " << colorBottomRight << "   " 
+    outs << start << " " << end << " " << colorTopLeft << " "
+         << colorTopRight << " " << colorBottomRight << " " 
          << colorBottomLeft << endl;
 }
 

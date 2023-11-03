@@ -13,13 +13,6 @@
 
 #include "Point.h"
 
-
-//! DWD 
-#include <string>
-#include <iostream>
-
-
-
 // for the declaration of DIMENSION
 #include "utility.h"
 
