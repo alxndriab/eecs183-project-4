@@ -5,10 +5,10 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Alexandria Balde and Teresa Billecke
+ * abalde and tbilleck
  *
- * <#Description#>
+ * A class for a point (x,y)
  */
 
 #include "Point.h"

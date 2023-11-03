@@ -5,10 +5,10 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Alexandria Balde and Teresa Billecke
+ * abalde and tbilleck
  *
- * <#Description#>
+ * A class to draw a triangular shape
  */
 
 #include "Triangle.h"

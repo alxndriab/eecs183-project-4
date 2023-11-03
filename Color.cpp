@@ -5,10 +5,10 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Alexandria Balde and Teresa Billecke
+ * abalde and tbilleck
  *
- * <#Description#>
+ * A class to take in a color in RGB
  */
 
 #include "Color.h"
@@ -24,7 +24,7 @@ int Color::checkRange(int val){
             return 0;
         }
         else {
-            return COLOR_MAX - 1;
+            return COLOR_MAX;
         }
     }
 }

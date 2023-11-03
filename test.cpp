@@ -69,7 +69,7 @@ void test_Point() {
          << "," << p1.getY()
          << ")" << endl;
     
-Point pt1;
+     Point pt1;
     pt1.setX(15);
     cout << "Expected: (15,0), actual : (" << pt1.getX() << "," << pt1.getY() << ")" << endl;
     
@@ -126,38 +126,38 @@ void test_Color(){
     Color color2(255, 150, 0);
     cout << "Expected: 255 150 0, Actual: " << color2 << endl;
 
-    Color color5(10000, -1243, 254);
-    cout << "Expected: 255 0 254, Actual: " << color5 << endl;
-    
-    Color color4(254, 1, 000);
-    cout << "Expected: 254 1 0, Actual: " << color4 << endl;
-
     Color color3;
     color3.setRed(100);
-    color3.setGreen(000);
+    color3.setGreen(0);
     color3.setBlue(200);
     
     cout << "Expected: (100 000 200), Actual: " << color3.getRed() << " " 
          << color3.getGreen() << " " << color3.getBlue() << endl;
 
-    Color color4(50000, -100, 0);
-    cout << "Expected: 255 150 000, Actual: " << color4 << endl;
+    Color color4(254, 1, 000);
+    cout << "Expected: 254 1 0, Actual: " << color4 << endl;
+
+    Color color5(10000, -1243, 254);
+    cout << "Expected: 255 0 254, Actual: " << color5 << endl;
+
+    Color color6(50000, -100, 0);
+    cout << "Expected: 255 150 000, Actual: " << color6 << endl;
 
 }
 
 void test_Line(){
     cout << endl << "Now testing Line" << endl;
-    Line pt1;
-    Line pt2;
+    Point pt1;
+    Point pt2;
     Color color1;
-    cout << "Expected (0,0) (0,0) 0 0 0, Actual: " << pt1 << " " << pt2 
-         << " " << color1 << endl;
+    Line newLine;(pt1, pt2, color1);
+    cout << "Expected (0,0) (0,0) 0 0 0, Actual: " << newLine << endl;
     
-    Point pt3(13, 56);
-    Point pt4(93, 37);
+    Point pt3(999, 56);
+    Point pt4(93, -37);
     Color color2(155, 150, 100);
-    cout << "Expected (13, 56) (93, 37) 155 150 100, Actual: " << pt3 << " " 
-         << pt4 << " " << color2 << endl;
+    Line newLine2(pt3, pt4, color2);
+    cout << "Expected (99, 56) (93, 0) 155 150 100, Actual: " << newLine2 << endl;
 
     Point pt7(130, -56);
     Point pt8(93, 37);
@@ -173,14 +173,14 @@ void test_Line(){
     
     Line line;
     Point pt5;
-    line.setStart(pt5);
     pt5.setX(45);
     pt5.setY(56);
+    line.setStart(pt5);
     Point pt6;
-    line.setEnd(pt6);
     pt6.setX(23);
     pt6.setY(87);
-    Color color3 (255, 150, 000);
+    line.setEnd(pt6);
+    Color color3 (255, 150, 0);
     line.setColor(color3);
     cout << "Expected (45, 56) (23, 87) 255 150 100, Actual: " << pt5 << " " 
          << pt6 << " " << color3 << endl;

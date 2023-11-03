@@ -8,7 +8,7 @@
  * Alexandria Balde and Teresa Billecke
  * abalde and tbilleck
  *
- * <#Description#>
+ * A class to draw a rectangular shape
  */
 
 #include "Rectangle.h"
@@ -93,17 +93,20 @@ Color Rectangle::getColorBottomLeft() {
 }
 
 void Rectangle::read(istream& ins) {
-    ins >> start >> end >> colorTopLeft >> colorTopRight;
+    int red;
+    int green;
+    int blue;
+    //! FIX
+    ins >> start >> end >> colorTopLeft >> red;
 
     if (ins.fail()) {
         ins.clear();
-        colorTopRight = colorTopLeft;
-        colorBottomLeft = colorTopLeft;
-        colorBottomRight = colorTopLeft;
+        setColor(colorTopLeft);
     }
-    else{
-        ins >> colorBottomLeft;
-        ins >> colorBottomRight;
+    else {
+        ins >> green >> blue >> colorBottomRight >> colorBottomLeft;
+        Color cTopRight(red, green, blue);
+        setColorTopRight(cTopRight);
     }
 }
 

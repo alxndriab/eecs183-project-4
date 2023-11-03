@@ -71,3 +71,6 @@ Rectangle
 - [ ] test_Rectangle();
 - [ ] test_Triangle();
 - [ ] file_check();
+
+7. Comments 
+- [ ] comments for pics.cpp
