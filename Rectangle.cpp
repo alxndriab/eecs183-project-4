@@ -29,12 +29,12 @@ Rectangle::Rectangle(Point pt1, Point pt2, Color color) {
 
 Rectangle::Rectangle(Point pt1, Point pt2, Color cTopLeft, Color cTopRight,
               Color cBottomRight, Color cBottomLeft) {
-    setStart(pt1);
-    setEnd(pt2);
-    setColorTopLeft(cTopLeft);
-    setColorTopRight(cTopRight);
-    setColorBottomLeft(cBottomLeft);
-    setColorBottomRight(cBottomRight);
+    start = pt1;
+    end = pt2;
+    colorTopLeft = cTopLeft;
+    colorTopRight = cTopRight;
+    colorBottomRight = cBottomRight;
+    colorBottomLeft = cBottomLeft;
 }
 
 void Rectangle::setStart(Point pt) {
