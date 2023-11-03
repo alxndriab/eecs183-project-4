@@ -292,13 +292,20 @@ void test_Rectangle(){
     cout << "Expected (1,3) (45,17)  204 0 102  0 123 25  105 10 235  "
          << "255 90 35, Actual: " << pt7 << "  " << pt8 << "  " << color3 
          << "  " << color4 << "  " << color5 << "  " << color6 << endl;
-        Point pt14(1, 3);
+        
+    Point pt14(1, 3);
     Point pt15(45, 17);
     Color color11(204, -78, 102);
     Color color8(0, 123, 25);
     Color color9(105, 10, 235);
     Color color10(266, 90, 35);
     Rectangle r2(pt14, pt15, color11, color8, color9, color10);
+    r2.setStart(pt14);
+    r2.setEnd(pt15);
+    r2.setColorTopLeft(color11);
+    r2.setColorTopRight(color8);
+    r2.setColorBottomRight(color9);
+    r2.setColorBottomLeft(color10);
     cout << "Expected (1,3) (45,17)  204 0 102  0 123 25  105 10 235  255"
     "90 35, Actual: " << r2.getStart() << " " << r2.getEnd() << "  " << r2.getColorTopLeft() << "   " <<
     r2.getColorTopRight() << "   " << r2.getColorBottomRight() << "   " << r2.getColorTopRight() << endl;
