@@ -253,6 +253,21 @@ void test_Rectangle(){
     Color color1(125, 0, 255);
     cout << "Expected (12,3) (45,67)  125 0 255, Actual: " << pt3 << "  " 
          << pt4 << "  " << color1 << endl;
+
+    Point pt9(12, 3);
+    Point pt10(45, 67);
+    Color color7(125, 0, 255);
+    Rectangle rectangle1(pt9, pt10, color7);
+    cout << "Expected (12,3) (45,67)  125 0 255, Actual: " << rectangle1 << endl;
+    
+    Point pt11(12, 3);
+    Point pt12(45, 67);
+    Color colorTL(125, 0, 255);
+    Color colorTR(234, 999, -123);
+    Color colorBL(204, -78, 102);
+    Color colorBR(266, 90, 35);
+    Rectangle rectangle2(pt11, pt12, colorTL, colorTR, colorBL, colorBR);
+    cout << "Expected (12,3) (45,67)  125 0 255  234 255 0   204 0 102   255 90 35, Actual: " << rectangle2 << endl;
     
     Point pt5;
     Point pt6;
