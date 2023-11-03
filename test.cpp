@@ -184,6 +184,16 @@ void test_Line(){
     line.setColor(color3);
     cout << "Expected (45, 56) (23, 87) 255 150 100, Actual: " << pt5 << " " 
          << pt6 << " " << color3 << endl;
+
+    Line line3;
+    Point pt12(45, 56);
+    line.setStart(pt12);
+    Point pt13(23, 87);
+    line.setEnd(pt13);
+    Color color6 (255, 150, 100);
+    line.setColor(color6);
+    cout << "Expected (45,56) (23,87) 255 150 100, Actual: " << line3.getStart() <<
+    " " << line3.getEnd() << " " << line3.getColor() << endl << endl;
 }
 
 void test_Circle(){
