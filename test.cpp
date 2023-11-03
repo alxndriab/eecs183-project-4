@@ -126,6 +126,12 @@ void test_Color(){
     Color color2(255, 150, 0);
     cout << "Expected: 255 150 0, Actual: " << color2 << endl;
 
+    Color color5(10000, -1243, 254);
+    cout << "Expected: 255 0 254, Actual: " << color5 << endl;
+    
+    Color color4(254, 1, 000);
+    cout << "Expected: 254 1 0, Actual: " << color4 << endl;
+
     Color color3;
     color3.setRed(100);
     color3.setGreen(000);
@@ -152,6 +158,18 @@ void test_Line(){
     Color color2(155, 150, 100);
     cout << "Expected (13, 56) (93, 37) 155 150 100, Actual: " << pt3 << " " 
          << pt4 << " " << color2 << endl;
+
+    Point pt7(130, -56);
+    Point pt8(93, 37);
+    Color color5(-23, 150, 1000);
+    Line line2(pt7, pt8, color5);
+    cout << "Expected (99,0) (93,37) 0 150 255, Actual: " << line2 << endl;
+    
+    Point pt10(83, 14);
+    Point pt11(90, 67);
+    Color color4(0, 150, 255);
+    Line line1(pt10, pt11, color4);
+    cout << "Expected L (83,14) (90,67) 0 150 255, Actual: " << line1 << endl;
     
     Line line;
     Point pt5;
@@ -172,7 +190,7 @@ void test_Circle(){
     cout << endl << "Now testing Circle" << endl;
     
     Point pt;
-    int r = 0;
+    int r;
     Color c;
     cout << "Expected (0,0)  0   0 0 0, Actual: " << pt << "  " << r << "  " 
          << c << endl;
@@ -182,6 +200,12 @@ void test_Circle(){
     Color c1(125, 400, 150);
     cout << "Expected (24,87)  12   125 255 150, Actual: " << pt1 << "  " 
          << r1 << "  " << c1 << endl;
+
+    Point pt3(-123, 874);
+    int r3 = -15;
+    Color c4(125, 400, 150);
+    Circle circle1(pt3, r3, c4);
+    cout << "Expected (0,99)  15   125 255 150, Actual: " << circle1 << endl;
     
     Point pt2;
     Circle circle;
@@ -194,6 +218,15 @@ void test_Circle(){
     circle.setColor(c3);
     cout << "Expected (45,32)  17   0 125 255, Actual: " << pt2 << "  " 
          << r2 << "  " << c3 << endl << endl;
+
+     Point pt4(1000, -5);
+    int r4 = -23;
+    Color c5(125, 400, -150);
+    circle.setCenter(pt4);
+    circle.setRadius(r4);
+    circle.setColor(c5);
+    cout << "Expected (99,0)  23   125 255 0, Actual: " << pt4
+    << "  " << r4 << "  " << c5 << endl << endl;
 }
 
 void test_Rectangle(){
